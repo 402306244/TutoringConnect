@@ -1,0 +1,12 @@
+# dependencies
+**/node_modules/
+**/dist/
+**/.vite/
+**/.DS_Store
+
+# environment
+**/.env
+!**/.env.example
+
+# logs
+npm-debug.log*
