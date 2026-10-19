@@ -1,62 +1,283 @@
-/* Global styling for the app. This project uses plain CSS rather than a UI framework. */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  color: #222;
+/* Tutoring Connect – global styling (plain CSS, no Tailwind).
+   Theme ported from the Figma design. Existing selectors are kept,
+   and the Figma component classes are added as optional extras. */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ---------- Design tokens ---------- */
+:root {
+  --background: #F0F4F8;
+  --foreground: #0D1B35;
+  --card: #FFFFFF;
+  --primary: #1B3D7D;
+  --primary-hover: #153265;
+  --primary-foreground: #FFFFFF;
+  --secondary: #EBF1FB;
+  --muted-foreground: #5E7391;
+  --accent: #22C55E;
+  --accent-hover: #16A34A;
+  --border: #DDE5F0;
+  --ring: rgba(27, 61, 125, 0.1);
+  --danger: #DC2626;
+  --radius: 0.75rem;
+  --radius-sm: 0.625rem;
+  --shadow: 0 1px 3px rgba(13, 27, 53, 0.06);
 }
+
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  margin: 0;
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', system-ui, sans-serif;
+  color: var(--foreground);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Header / layout ---------- */
 header {
-  padding: 15px;
-  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.875rem 1.5rem;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
 header h1 {
   display: inline;
-  margin-right: 25px;
+  margin: 0 1.5rem 0 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
 }
-button,
-input,
-select,
-textarea {
-  margin: 5px;
-  padding: 8px;
+header a,
+header nav a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.875rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  transition: all 0.15s ease;
 }
+header a:hover {
+  background: var(--secondary);
+  color: var(--primary);
+  text-decoration: none;
+}
+header a.active {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
 main {
   max-width: 1100px;
   margin: 25px auto;
   padding: 0 15px;
 }
-.auth {
-  max-width: 450px;
-  margin: 70px auto;
+
+/* ---------- Buttons ---------- */
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 5px;
+  padding: 0.625rem 1.5rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
 }
-.auth form {
-  display: flex;
-  flex-direction: column;
+button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(27, 61, 125, 0.3);
 }
-.card {
-  border: 1px solid #ccc;
-  padding: 15px;
-  margin: 10px 0;
+button:active {
+  transform: translateY(0);
 }
-.row {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 15px;
+
+/* Optional variants – add as class="btn-accent" etc. */
+.btn-accent {
+  background: var(--accent);
 }
-th,
-td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: left;
+.btn-accent:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.35);
 }
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+}
+.btn-outline:hover {
+  background: var(--secondary);
+  box-shadow: none;
+}
+
+.btn-danger {
+  background: #FEF2F2;
+  color: var(--danger);
+  border: 1px solid #FECACA;
+}
+.btn-danger:hover {
+  background: #FEE2E2;
+  box-shadow: none;
+}
+
+.btn-sm {
+  padding: 0.4rem 1rem;
+  font-size: 0.8125rem;
+}
+
+/* ---------- Form fields ---------- */
+input,
+select,
+textarea {
+  margin: 5px;
+  padding: 0.625rem 0.875rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--card);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--ring);
+}
+input::placeholder,
+textarea::placeholder {
+  color: #94A3B8;
+}
+
 textarea {
   display: block;
   width: 80%;
   min-height: 80px;
 }
+
+label {
+  display: block;
+  margin: 5px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--muted-foreground);
+}
+
+/* ---------- Auth page ---------- */
+.auth {
+  max-width: 450px;
+  margin: 70px auto;
+  padding: 2rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(13, 27, 53, 0.08);
+}
+.auth h1,
+.auth h2 {
+  margin-top: 0;
+  color: var(--primary);
+}
+.auth form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Cards / rows ---------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+  margin: 10px 0;
+}
+
+.row {
+  padding: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.row:last-child {
+  border-bottom: none;
+}
+
+/* ---------- Tables ---------- */
+table {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+th,
+td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+th {
+  background: var(--secondary);
+  color: var(--primary);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+tr:last-child td {
+  border-bottom: none;
+}
+tbody tr:hover td {
+  background: #F7FAFE;
+}
+
+/* ---------- Stats ---------- */
 .stats {
   display: flex;
   flex-wrap: wrap;
@@ -66,4 +287,150 @@ textarea {
   min-width: 120px;
   display: flex;
   flex-direction: column;
+  padding: 1.5rem;
+}
+.stats .card h2,
+.stats .card strong {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* ---------- Badges (optional) ---------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.badge-blue   { background: #EBF1FB; color: #1B3D7D; }
+.badge-green  { background: #DCFCE7; color: #16A34A; }
+.badge-yellow { background: #FEF9C3; color: #CA8A04; }
+.badge-red    { background: #FEF2F2; color: #DC2626; }
+.badge-gray   { background: #F1F5F9; color: #5E7391; }
+
+/* ---------- Misc helpers (optional) ---------- */
+.page-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.section-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+.star { color: #F59E0B; }
+.star-empty { color: var(--border); }
+
+.progress-bar {
+  height: 6px;
+  background: var(--secondary);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 9999px;
+  transition: width 0.6s ease;
+}
+
+.teams-btn {
+  background: #5558AF;
+}
+.teams-btn:hover {
+  background: #464899;
+  box-shadow: 0 4px 12px rgba(85, 88, 175, 0.3);
+}
+
+.avatar {
+  border-radius: 9999px;
+  object-fit: cover;
+  background: var(--secondary);
+  flex-shrink: 0;
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+
+/* ---------- Accessibility ---------- */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 768px) {
+  header {
+    padding: 0.75rem 1rem;
+  }
+  .auth {
+    margin: 30px 15px;
+    padding: 1.5rem;
+  }
+  textarea {
+    width: 100%;
+  }
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+/* ---------- Login page: background + logo ---------- */
+/* Only applies on pages that contain .auth, so the rest of the app keeps the plain background */
+body:has(.auth) {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(34, 197, 94, 0.18), transparent 40%),
+    radial-gradient(circle at 88% 82%, rgba(27, 61, 125, 0.25), transparent 45%),
+    linear-gradient(135deg, #EBF1FB 0%, #F0F4F8 50%, #DCE7F8 100%);
+  background-attachment: fixed;
+}
+
+/* Subtle dot grid over the gradient */
+body:has(.auth)::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(27, 61, 125, 0.12) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.auth {
+  position: relative;
+  z-index: 1;
+}
+
+.auth h1,
+.auth h2 {
+  text-align: center;
+}
+
+/* Logo: graduation cap icon above the title */
+.auth h1::before,
+.auth h2::before {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231B3D7D'/%3E%3Cpath d='M32 15 9 27l23 12 23-12z' fill='white'/%3E%3Cpath d='M18 34v9c0 4 6.5 8 14 8s14-4 14-8v-9l-14 7z' fill='white' opacity='.85'/%3E%3Cpath d='M55 28v13' stroke='%2322C55E' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='55' cy='44' r='3' fill='%2322C55E'/%3E%3C/svg%3E") center / contain no-repeat;
 }
