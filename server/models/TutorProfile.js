@@ -1,16 +1,19 @@
-// Tutor-specific profile information. Subjects links tutors to the subjects they teach.
+// Tutor-specific information.
+// The subjects array represents Tutor <-> Subject assignment.
 import mongoose from "mongoose";
 
 const schema = new mongoose.Schema(
   {
-    user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true, unique: true },
-    bio: { type: String, default: "", trim: true, maxlength: 2000 },
-    qualifications: { type: [String], default: [] },
-    profilePicture: { type: String, default: "", trim: true },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+      unique: true,
+    },
+    bio: { type: String, default: "" },
     subjects: [{ type: mongoose.Schema.Types.ObjectId, ref: "Subject" }],
   },
   { timestamps: true },
 );
 
 export default mongoose.model("TutorProfile", schema);
-
