@@ -72,22 +72,33 @@ const curriculum = {
   ]
 };
 
-// Demo identities are fictional placeholders, not real Richfield tutors.
+// These are fictional sample identities with realistic names, NOT actual Richfield tutors.
+// Replace them with verified tutor details before using this with real students.
 const tutorDefinitions = [
-  { name: "Demo Tutor 01 - Programming", email: "demo.tutor01@example.com", bio: "Demo profile for programming, web development, software engineering and mobile application modules.", match: /program|web technology|internet programming|software|mobile app|human computer interaction|system software|operating systems|theory of programming/i },
-  { name: "Demo Tutor 02 - Networks & Security", email: "demo.tutor02@example.com", bio: "Demo profile for networking, systems, cyber security and computer forensics modules.", match: /network|cyber|security|forensic|digital crime|computer architecture|server technology|cloud computing/i },
-  { name: "Demo Tutor 03 - Data & AI", email: "demo.tutor03@example.com", bio: "Demo profile for data science, analytics, statistics, AI and machine learning modules.", match: /data|statistics|machine learning|artificial intelligence|big data|analytics|mathematics|algebra|robotics|iot|visualisation/i },
-  { name: "Demo Tutor 04 - IT Systems", email: "demo.tutor04@example.com", bio: "Demo profile for information systems, databases, IT projects, research and technology management.", match: /information systems|database|it project|project management|research|technology|metaverse|digital transformation|business analysis|e-commerce|m-commerce/i },
-  { name: "Demo Tutor 05 - Accounting", email: "demo.tutor05@example.com", bio: "Demo profile for accounting, auditing, taxation and financial management modules.", match: /accounting|auditing|taxation|financial management|finance|it audit/i },
-  { name: "Demo Tutor 06 - Economics & Quantitative", email: "demo.tutor06@example.com", bio: "Demo profile for economics, statistics, quantitative techniques and business mathematics modules.", match: /economics|statistics|quantitative|business statistics|algebra/i },
-  { name: "Demo Tutor 07 - Business Management", email: "demo.tutor07@example.com", bio: "Demo profile for business management, strategy, entrepreneurship and quality management modules.", match: /business management|strategic management|entrepreneurship|small business|quality management|general management|operations management|innovation|mba|leadership|change management/i },
-  { name: "Demo Tutor 08 - Human Resources", email: "demo.tutor08@example.com", bio: "Demo profile for human resources, industrial psychology, training and labour relations modules.", match: /human resource|hrm|industrial psychology|training|development|human relations|industrial relations|talent/i },
-  { name: "Demo Tutor 09 - Marketing & Communication", email: "demo.tutor09@example.com", bio: "Demo profile for marketing, business communication, stakeholder relations and office communication modules.", match: /marketing|communication|stakeholder|market research|business ethics|commercial law/i },
-  { name: "Demo Tutor 10 - Supply Chain", email: "demo.tutor10@example.com", bio: "Demo profile for supply chain, procurement, logistics and operations modules.", match: /supply chain|procurement|logistics/i },
-  { name: "Demo Tutor 11 - Public Management", email: "demo.tutor11@example.com", bio: "Demo profile for public management, public-sector finance, public law and policy modules.", match: /public management|public sector|public law|politics|policy|ethics in public|public-sector/i },
-  { name: "Demo Tutor 12 - Local Government", email: "demo.tutor12@example.com", bio: "Demo profile for local government, municipal management, finance and public administration modules.", match: /local government|municipal|disaster management|local government finance|local government policing|professionalism/i },
-  { name: "Demo Tutor 13 - Office Administration", email: "demo.tutor13@example.com", bio: "Demo profile for office administration, office communication and administrative support modules.", match: /office administration|office communication|facilitate implementation|rpl applications|profile 511/i },
-  { name: "Demo Tutor 14 - General Academic Support", email: "demo.tutor14@example.com", bio: "Demo profile for general management, research, work-integrated learning and cross-disciplinary modules.", match: /./ }
+  { name: "Aiden Naidoo", email: "demo.tutor01@example.com", focus: "Programming & Web Development", bio: "Fictional sample tutor focused on introductory programming, web development and software projects.", match: /program|web technology|internet programming|software development|mobile app|human computer interaction|system software|theory of programming/i },
+  { name: "Kiara Pillay", email: "demo.tutor02@example.com", focus: "Software Engineering & Mobile Apps", bio: "Fictional sample tutor focused on software design, application development and user experience.", match: /software engineering|mobile app|human computer interaction|internet programming|m-commerce|e-commerce|programming/i },
+  { name: "Thabo Mokoena", email: "demo.tutor03@example.com", focus: "Networks & Infrastructure", bio: "Fictional sample tutor focused on computer networks, servers, operating systems and cloud infrastructure.", match: /network|server technology|operating systems|computer architecture|cloud computing/i },
+  { name: "Zanele Khumalo", email: "demo.tutor04@example.com", focus: "Cyber Security & Forensics", bio: "Fictional sample tutor focused on cyber security, digital investigations and computer forensics.", match: /cyber|security|forensic|digital crime|forensic computing|exploitation|investigation/i },
+  { name: "Liam Petersen", email: "demo.tutor05@example.com", focus: "Data Science & Statistics", bio: "Fictional sample tutor focused on statistics, data preparation, visualisation and analytics.", match: /data science|data manipulation|visualisation|statistics|big data|analytics|quantitative techniques|business statistics/i },
+  { name: "Amahle Dlamini", email: "demo.tutor06@example.com", focus: "Artificial Intelligence & Robotics", bio: "Fictional sample tutor focused on artificial intelligence, machine learning, robotics and emerging technology.", match: /machine learning|artificial intelligence|robotics|autonomous systems|iot|metaverse|emerging technologies|big data/i },
+  { name: "Ethan Govender", email: "demo.tutor07@example.com", focus: "Databases & Information Systems", bio: "Fictional sample tutor focused on databases, information systems and business technology.", match: /database|information systems|management information systems|information technology governance|digital transformation/i },
+  { name: "Noluthando Cele", email: "demo.tutor08@example.com", focus: "IT Projects & Business Analysis", bio: "Fictional sample tutor focused on business analysis, research, project planning and IT management.", match: /business analysis|it project|project management|research methodology|research project|it management|information technology strategy/i },
+  { name: "Mia van der Merwe", email: "demo.tutor09@example.com", focus: "Accounting & Auditing", bio: "Fictional sample tutor focused on accounting principles, auditing and assurance.", match: /accounting|auditing|assurance|fundamentals of accounting/i },
+  { name: "Siyabonga Ndlovu", email: "demo.tutor10@example.com", focus: "Taxation & Finance", bio: "Fictional sample tutor focused on taxation, financial management and finance modules.", match: /taxation|financial management|managerial finance|public sector finance|local government finance/i },
+  { name: "Chloe Daniels", email: "demo.tutor11@example.com", focus: "Economics & Quantitative Methods", bio: "Fictional sample tutor focused on economics, quantitative methods and business statistics.", match: /economics|statistics|quantitative|business statistics|mathematics|algebra/i },
+  { name: "Lethabo Molefe", email: "demo.tutor12@example.com", focus: "Business Management & Strategy", bio: "Fictional sample tutor focused on management, strategy, entrepreneurship and business operations.", match: /business management|strategic management|entrepreneurship|small business|quality management|general management|operations management|innovation|leadership|change management/i },
+  { name: "Isabella Naicker", email: "demo.tutor13@example.com", focus: "Human Resources", bio: "Fictional sample tutor focused on human resource management, industrial psychology and workplace development.", match: /human resource|hrm|industrial psychology|training|development|human relations|industrial relations|talent/i },
+  { name: "Musa Zulu", email: "demo.tutor14@example.com", focus: "Marketing & Communication", bio: "Fictional sample tutor focused on marketing, business communication and stakeholder relations.", match: /marketing|communication|stakeholder|market research|public relations/i },
+  { name: "Leila Ismail", email: "demo.tutor15@example.com", focus: "Supply Chain & Procurement", bio: "Fictional sample tutor focused on supply chain, procurement, logistics and operations.", match: /supply chain|procurement|logistics|operations management/i },
+  { name: "Sipho Dlamini", email: "demo.tutor16@example.com", focus: "Public Management & Policy", bio: "Fictional sample tutor focused on public management, public-sector policy, law and administration.", match: /public management|public sector|public law|politics|policy|ethics in public/i },
+  { name: "Anika Moodley", email: "demo.tutor17@example.com", focus: "Local Government Management", bio: "Fictional sample tutor focused on local government, municipal administration and service delivery.", match: /local government|local economic development|municipal|disaster management|professionalism/i },
+  { name: "Daniel Mthembu", email: "demo.tutor18@example.com", focus: "Office Administration", bio: "Fictional sample tutor focused on office administration, office communication and administrative systems.", match: /office administration|office communication|human relations|facilitate implementation|rpl applications/i },
+  { name: "Fatima Khan", email: "demo.tutor19@example.com", focus: "Commercial Law & Business Ethics", bio: "Fictional sample tutor focused on commercial law, ethics, governance and responsible business.", match: /commercial law|business ethics|corporate governance|law and ethics|professionalism/i },
+  { name: "Jordan Mkhize", email: "demo.tutor20@example.com", focus: "Research & Academic Skills", bio: "Fictional sample tutor focused on research methodology, academic foundations and study support.", match: /research|fundamentals of research|work integrated learning|business communication|elementary algebra/i },
+  { name: "Keegan Botha", email: "demo.tutor21@example.com", focus: "Cloud & Systems Technology", bio: "Fictional sample tutor focused on cloud computing, server technology, system software and IT infrastructure.", match: /cloud computing|server technology|system software|operating systems|computer architecture|networks/i },
+  { name: "Ayanda Buthelezi", email: "demo.tutor22@example.com", focus: "Leadership & Digital Transformation", bio: "Fictional sample tutor focused on leadership, technology strategy and digital transformation.", match: /strategic leadership|digital transformation|information technology strategy|it strategic management|it management|innovation/i },
+  { name: "Riya Reddy", email: "demo.tutor23@example.com", focus: "Digital Investigation & Internet Forensics", bio: "Fictional sample tutor focused on internet forensics, digital crime and investigation modules.", match: /internet forensics|digital crime|forensic|network forensics|intelligence/i },
+  { name: "Noah Jacobs", email: "demo.tutor24@example.com", focus: "Business Foundations & Study Support", bio: "Fictional sample tutor focused on foundational business, communication and general management modules.", match: /business communication|business management|information systems|general management|economic environment|introduction to computers|introduction to information technology/i }
 ];
 
 const DEMO_PASSWORD = "DemoTutor2027!"; // Local demonstration only. Change/remove before deployment.
@@ -132,12 +143,20 @@ async function main() {
       await user.save();
     }
 
-    const subjectIds = [...subjectByName.entries()]
-      .filter(([name]) => tutorDef.match.test(name))
-      .map(([, subject]) => subject._id);
+    const matchingSubjects = [...subjectByName.entries()]
+      .filter(([name]) => tutorDef.match.test(name));
+    // Limit each sample tutor to at most six modules and spread selections across
+    // the matching list so one profile does not claim an unrealistic full curriculum.
+    const maxSubjectsPerTutor = 6;
+    const selectedMatches = matchingSubjects.length <= maxSubjectsPerTutor
+      ? matchingSubjects
+      : Array.from({ length: maxSubjectsPerTutor }, (_, index) =>
+          matchingSubjects[Math.round(index * (matchingSubjects.length - 1) / (maxSubjectsPerTutor - 1))]
+        );
+    const subjectIds = selectedMatches.map(([, subject]) => subject._id);
     await TutorProfile.findOneAndUpdate(
       { user: user._id },
-      { $set: { bio: tutorDef.bio, subjects: subjectIds } },
+      { $set: { bio: `${tutorDef.bio} This is a fictional sample profile for local testing; verify tutor details before launch.`, subjects: subjectIds } },
       { new: true, upsert: true, setDefaultsOnInsert: true }
     );
     assigned += subjectIds.length;
@@ -146,10 +165,10 @@ async function main() {
 
   console.log("\nRichfield 2027 demo seed complete.");
   console.log(`Unique subjects: ${subjectByName.size}`);
-  console.log(`Demo tutor profiles: ${tutorDefinitions.length}`);
+  console.log(`Fictional sample tutor profiles: ${tutorDefinitions.length}`);
   console.log(`Total tutor-to-subject assignments: ${assigned}`);
-  console.log(`Demo tutor password for local testing: ${DEMO_PASSWORD}`);
-  console.log("Do not deploy demo tutor accounts to a public/production site.");
+  console.log(`Local sample tutor password: ${DEMO_PASSWORD}`);
+  console.log("Do not deploy these fictional sample accounts to a public/production site. Replace them with verified tutors first.");
 }
 
 main()
